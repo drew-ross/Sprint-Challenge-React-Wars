@@ -1,15 +1,8 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import StyledButton from './StyledButton';
 
-const StyledButton = styled.button`
-    background: rgba(255, 255, 255, .8);
-    border-radius: 10px;
-    width: 10rem;
-    height: 2rem;
-    margin: 1rem;
-`;
-
-const Button = ({ charPage, setCharPage, error }) => {
+const PageButtons = ({ charPage, setCharPage, error }) => {
 
     const handleSetCharPage = (number) => {
         return () => {
@@ -32,4 +25,4 @@ const Button = ({ charPage, setCharPage, error }) => {
     )
 }
 
-export default Button;
+export default PageButtons;

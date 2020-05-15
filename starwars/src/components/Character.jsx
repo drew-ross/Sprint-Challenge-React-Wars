@@ -50,6 +50,7 @@ const Character = (props) => {
                     <p className='info'>{props.character.skin_color}</p>
                 </div>
             </div>
+            <button>More Info</button>
         </StyledCharacter>
     )
 }
