@@ -27,7 +27,6 @@ const Character = (props) => {
             .then(res => {
                 extraData.push(res.data.name);
                 props.setExtraCharData(extraData);
-                console.log(extraData)
                 props.setShowInfo(true);
             })
             .catch(err => props.setInfoError(err));
