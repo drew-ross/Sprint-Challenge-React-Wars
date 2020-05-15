@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import StyledButton from './StyledButton';
 
@@ -13,7 +13,13 @@ const PageButtons = ({ charPage, setCharPage, error }) => {
             }
         }
     }
-    
+
+    useEffect(() => {
+        if (error) {
+            decreaseCharPage();
+        }
+    }, [error]);
+
     const increaseCharPage = handleSetCharPage(1);
     const decreaseCharPage = handleSetCharPage(-1);
 
