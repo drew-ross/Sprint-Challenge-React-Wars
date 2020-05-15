@@ -21,7 +21,7 @@ const StyledCharacter = styled.div`
 const Character = (props) => {
 
     const getExtraCharacterData = () => {
-        let extraData = [];
+        let extraData = [props.character.name];
         props.setInfoError(null);
         axios.get(props.character.homeworld)
             .then(res => {

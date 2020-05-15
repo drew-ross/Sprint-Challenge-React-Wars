@@ -31,7 +31,7 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      {extraCharData && <ExtraInfoPage extraCharData={extraCharData} />}
+      {showInfo && <ExtraInfoPage extraCharData={extraCharData} setShowInfo={setShowInfo}/>}
       <PageButtons error={error} charPage={charPage} setCharPage={setCharPage} />
       {charData && charData.map((character, id) => {
         return <Character 
