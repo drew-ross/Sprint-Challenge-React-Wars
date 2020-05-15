@@ -1,5 +1,8 @@
 import React from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
+import StyledButton from './StyledButton';
+
 
 const StyledCharacter = styled.div`
     width: 80%;
@@ -16,6 +19,24 @@ const StyledCharacter = styled.div`
 `;
 
 const Character = (props) => {
+
+    const getExtraCharacterData = () => {
+        let extraData = [];
+        props.setInfoError(null);
+        axios.get(props.character.homeworld)
+            .then(res => {
+                extraData.push(res.data.name);
+                props.setExtraCharData(extraData);
+                console.log(extraData)
+                props.setShowInfo(true);
+            })
+            .catch(err => props.setInfoError(err));
+    }
+
+    const handleGetExtraCharacterData = (e) => {
+        e.preventDefault();
+        getExtraCharacterData();
+    }
 
     return (
         <StyledCharacter>
@@ -50,7 +71,7 @@ const Character = (props) => {
                     <p className='info'>{props.character.skin_color}</p>
                 </div>
             </div>
-            <button>More Info</button>
+            <StyledButton onClick={handleGetExtraCharacterData}>More Info</StyledButton>
         </StyledCharacter>
     )
 }
