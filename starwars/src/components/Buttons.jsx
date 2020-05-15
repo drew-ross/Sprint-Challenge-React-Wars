@@ -1,4 +1,13 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
+
+const StyledButton = styled.button`
+    background: rgba(255, 255, 255, .8);
+    border-radius: 10px;
+    width: 10rem;
+    height: 2rem;
+    margin: 1rem;
+`;
 
 const Button = ({ charPage, setCharPage, error }) => {
 
@@ -17,8 +26,8 @@ const Button = ({ charPage, setCharPage, error }) => {
 
     return (
         <div className='buttons'>
-            <button onClick={decreaseCharPage}>Previous</button>
-            <button onClick={increaseCharPage}>Next</button>
+            <StyledButton onClick={decreaseCharPage}>Previous</StyledButton>
+            <StyledButton onClick={increaseCharPage}>Next</StyledButton>
         </div>
     )
 }

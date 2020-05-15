@@ -31,6 +31,7 @@ const App = () => {
       {charData && charData.map(character => {
         return <Character character={character} />
       })}
+      <Buttons error={error} charPage={charPage} setCharPage={setCharPage} />
     </div>
   );
 }
