@@ -15,7 +15,10 @@ const App = () => {
   // sync up with, if any.
   const getCharData = () => {
     axios.get(`https://swapi.py4e.com/api/people/?page=${charPage}`)
-      .then(res => setCharData(res.data.results))
+      .then(res => {
+        setCharData(res.data.results);
+        setError(null);
+      })
       .catch(err => setError(err));
   }
 
@@ -24,9 +27,9 @@ const App = () => {
   return (
     <div className="App">
       <h1 className="Header">Characters</h1>
-      <Buttons charPage={charPage} setCharPage={setCharPage}/>
+      <Buttons error={error} charPage={charPage} setCharPage={setCharPage} />
       {charData && charData.map(character => {
-       return <Character character={character} />
+        return <Character character={character} />
       })}
     </div>
   );
